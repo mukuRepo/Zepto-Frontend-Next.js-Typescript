@@ -93,7 +93,6 @@ import { RxCross2 } from "react-icons/rx";
         position: 'absolute',
         top: inputRect ? inputRect.bottom + window.scrollY : 0,
         left: inputRect ? inputRect.left + window.scrollX : 0,
- // Adjust the width as needed
         zIndex: 10,
         background: 'white',
         border: '0px solid #ccc',
@@ -105,10 +104,8 @@ import { RxCross2 } from "react-icons/rx";
       const matchingContacts = contacts.filter(
         (contact) => !selectedItems.includes(contact.name) && contact.name.toLowerCase().includes(inputValue.toLowerCase())
       );
-    
-      // Calculate dynamic height based on the number of matching contacts
-      const dynamicHeight = Math.min(matchingContacts.length * 60, 300); // Adjust the factor (60) based on your design
-    
+
+      const dynamicHeight = Math.min(matchingContacts.length * 60, 300); 
       return (
         <ul style={{ ...suggestionsStyle, height: `${dynamicHeight}px` }} className='overflow-y-auto'>
           {matchingContacts.map((contact) => (
